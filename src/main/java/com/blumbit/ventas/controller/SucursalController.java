@@ -1,18 +1,21 @@
 package com.blumbit.ventas.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.blumbit.ventas.entity.Sucursal;
 import com.blumbit.ventas.service.spec.SucursalService;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sucursal")   // Ruta para acceder al Servicio
 public class SucursalController {
 
-    private final SucursalService sucursalService;  //Inyeccion del Servicio
+    private final SucursalService sucursalService;  //Inyeccion del Servicio -> inyeccion de dependencias
+    
+    //Alternativa inyeccion de dependencias
+    //@Autowired
+    // private SucursalService sucursalService;
  
     public SucursalController(SucursalService sucursalService) {  //Constructor
         this.sucursalService = sucursalService;

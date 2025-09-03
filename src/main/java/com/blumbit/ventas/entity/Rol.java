@@ -4,6 +4,7 @@ import java.util.Set;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,11 +13,12 @@ import lombok.Setter;
 @Setter // Genera métodos como setId(Long id) y setName(String name).
 @AllArgsConstructor // Genera un constructor como public Role(Long id, String name).
 @Table(name = "roles") //Especifica que la entidad se mapeará a la tabla "roles".
+@Builder
 public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Short id;  //32500
 
     @Column(name = "nombre", nullable=false, length=100)
     private String nombre;
